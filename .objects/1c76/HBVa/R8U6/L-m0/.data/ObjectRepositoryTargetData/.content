@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="uMFJFzrSMUW5qHGz0BGKCA" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="live6.dentrixascend.com/pm" CVScreenId="4d321104-0f7b-4cbb-9d72-c7e7dd6b8990" CvElementArea="727, 971, 55, 28" CvType="InputBox" DesignTimeRectangle="728, 972, 52, 26" ElementType="DropDown" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='pageContent' tag='DIV' /&gt;&lt;webctrl shadowhostid='pageContent' tag='SELECT' /&gt;" Guid="b0f4dc33-2b41-46b4-91c9-950b6a5d554d" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Dentrix Ascend - Overview' /&gt;" SearchSteps="Selector, CV" Version="V6" WaitForReadyArgument="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="4d321104-0f7b-4cbb-9d72-c7e7dd6b8990" CvTextArea="672, 977, 51, 16" CvTextArgument="Showing" CvType="Text" DesignTimeRectangle="673, 977, 50, 15" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='pageContent' tag='DIV' matching:id='fuzzy' fuzzylevel:id='0.0' /&gt;&lt;webctrl aaname='Showing' shadowhostid='pageContent' tag='LABEL' type='' class='' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' matching:shadowhostid='fuzzy' fuzzylevel:shadowhostid='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' check:innerText='Showing' /&gt;" Guid="93874e05-044f-45a6-88d8-403b25c2bf67" SearchSteps="FuzzySelector, CV" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="862d9f9b80632f5a366a74ec5952f6d5.png" xmlns="">0UuayTjklw0mjRxTSajYfEA</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

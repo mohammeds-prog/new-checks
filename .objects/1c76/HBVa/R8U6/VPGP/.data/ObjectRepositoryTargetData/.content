@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="BKK1N5xKkUW2jStFnW-wvw" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="live6.dentrixascend.com/pm" CVScreenId="9eae2811-e6a5-4ece-86c9-bbeef328eca0" CvElementArea="393, 842, 251, 28" CvType="InputBox" DesignTimeRectangle="393, 844, 250, 26" ElementType="InputBox" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;webctrl id='pageContent' tag='DIV' matching:id='fuzzy' fuzzylevel:id='0.0' /&gt;&lt;webctrl class='sc-jdmjiD sc-hLLwan hFTIqj jmlHvm' placeholder='Select' shadowhostid='pageContent' tag='INPUT' type='text' aaname='' matching:class='fuzzy' fuzzylevel:class='0.0' matching:shadowhostid='fuzzy' fuzzylevel:shadowhostid='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="247a80f2-fa8e-4a51-b158-58748672922b" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Dentrix Ascend - Overview' /&gt;" SearchSteps="FuzzySelector, CV" Version="V6" WaitForReadyArgument="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="9eae2811-e6a5-4ece-86c9-bbeef328eca0" CvTextArea="391, 817, 212, 15" CvTextArgument="Which Appointment Providers" CvType="Text" DesignTimeRectangle="393, 808, 250, 36" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='pageContent' tag='DIV' matching:id='fuzzy' fuzzylevel:id='0.0' /&gt;&lt;webctrl aaname='Which Appointment Providers' shadowhostid='pageContent' tag='DIV' type='' class='sc-fDAHlQ hlNceR' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' matching:shadowhostid='fuzzy' fuzzylevel:shadowhostid='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' check:innerText='Which Appointment Providers' /&gt;" Guid="ef9d58ee-c1b7-439b-9f8c-ac7b66f87b2d" SearchSteps="FuzzySelector, CV" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="882e01172933a713bf7b5c9cdc762773.png" xmlns="">0tmTMW58DSUKV9B1GXtl1rg</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

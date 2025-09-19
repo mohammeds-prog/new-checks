@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="QpnCu-Eet02uwAajGrSZXw" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="live6.dentrixascend.com/pm" CVScreenId="85e23c35-88cd-430e-a53d-d73d13a4ac97" CvElementArea="404, 806, 19, 19" CvTextArea="429, 808, 55, 13" CvTextArgument="Select All" CvType="CheckBox" DesignTimeRectangle="406, 807, 77, 18" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='pageContent' tag='DIV' /&gt;&lt;webctrl aaname='Select All' shadowhostid='pageContent' tag='LABEL' /&gt;" Guid="b9e9497b-9c47-467f-a3d5-03ca95775c60" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Dentrix Ascend - Overview' /&gt;" SearchSteps="Selector, CV" Version="V6" WaitForReadyArgument="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="85e23c35-88cd-430e-a53d-d73d13a4ac97" CvTextArea="391, 739, 157, 18" CvTextArgument="Appointment Duration" CvType="Text" DesignTimeRectangle="393, 730, 250, 36" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='pageContent' tag='DIV' matching:id='fuzzy' fuzzylevel:id='0.0' /&gt;&lt;webctrl aaname='Appointment Duration' shadowhostid='pageContent' tag='DIV' type='' class='sc-fDAHlQ hlNceR' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' matching:shadowhostid='fuzzy' fuzzylevel:shadowhostid='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' check:innerText='Appointment Duration' /&gt;" Guid="bb35a88d-3489-408f-9246-8c6f313e9bcc" SearchSteps="FuzzySelector, CV" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="114381422be06b2a2b439a0396e27537.png" xmlns="">0HBDh8hBAYUuZ9AEyHlUs0w</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

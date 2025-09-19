@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="Uim517SimUCWX3Tc3h35bw" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="live6.dentrixascend.com/pm" CVScreenId="fc752857-f1e9-4a0c-a05d-10f1714cb4b6" CvElementArea="404, 614, 19, 19" CvTextArea="429, 616, 55, 13" CvTextArgument="Select All" CvType="CheckBox" DesignTimeRectangle="406, 615, 77, 18" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='pageContent' tag='DIV' /&gt;&lt;webctrl aaname='Select All' shadowhostid='pageContent' tag='LABEL' /&gt;" Guid="7423aacb-36f9-4646-9e07-e56d0b7a1882" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Dentrix Ascend - Overview' /&gt;" SearchSteps="Selector, CV" Version="V6" WaitForReadyArgument="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="fc752857-f1e9-4a0c-a05d-10f1714cb4b6" CvTextArea="392, 553, 88, 18" CvTextArgument="Time Range" CvType="Text" DesignTimeRectangle="393, 544, 250, 36" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='pageContent' tag='DIV' matching:id='fuzzy' fuzzylevel:id='0.0' /&gt;&lt;webctrl aaname='Time Range' shadowhostid='pageContent' tag='DIV' type='' class='sc-fDAHlQ hlNceR' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' matching:shadowhostid='fuzzy' fuzzylevel:shadowhostid='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' check:innerText='Time Range' /&gt;" Guid="4299fac8-d00d-40f7-8ab8-8231d9ad9e80" SearchSteps="FuzzySelector, CV" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="a5a2e2bf05877d8fea200115daf0b8b5.png" xmlns="">053qqFX9YDUWlEYaCQ2uf1w</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

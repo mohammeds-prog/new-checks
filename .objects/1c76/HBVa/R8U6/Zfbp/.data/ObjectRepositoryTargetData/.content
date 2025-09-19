@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="MhxXhWalJku7-Ge8sNgW1A" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="live6.dentrixascend.com/pm" CVScreenId="4df0e0f2-b7dc-4b1a-b9b6-83d2d17de0a5" CvElementArea="404, 645, 20, 19" CvTextArea="428, 646, 100, 16" CvTextArgument="Alora Dental Spa" CvType="CheckBox" DesignTimeRectangle="406, 645, 122, 18" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='pageContent' tag='DIV' /&gt;&lt;webctrl aaname='Alora Dental Spa' shadowhostid='pageContent' tag='LABEL' /&gt;" Guid="fec76426-d2eb-4700-ab04-ef2a74da22bd" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Dentrix Ascend - Overview' /&gt;" SearchSteps="Selector, CV" Version="V6" WaitForReadyArgument="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="4df0e0f2-b7dc-4b1a-b9b6-83d2d17de0a5" CvTextArea="392, 553, 88, 18" CvTextArgument="Time Range" CvType="Text" DesignTimeRectangle="393, 544, 250, 36" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='pageContent' tag='DIV' matching:id='fuzzy' fuzzylevel:id='0.0' /&gt;&lt;webctrl aaname='Time Range' shadowhostid='pageContent' tag='DIV' type='' class='sc-fDAHlQ hlNceR' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' matching:shadowhostid='fuzzy' fuzzylevel:shadowhostid='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' check:innerText='Time Range' /&gt;" Guid="821fc6a4-0b28-4c7c-bd34-6ba433400492" SearchSteps="FuzzySelector, CV" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="c0f48933e889213d824dba6d51b8028b.png" xmlns="">0oy1mH-3miUeRD1Wdtq88kA</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

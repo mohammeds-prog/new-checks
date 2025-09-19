@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="6D6x-Ge2ikW_fgj4m1NrPg" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="live6.dentrixascend.com/pm" CVScreenId="a8b85833-ec8d-4397-ad88-3d3fe3fd0084" CvTextArea="411, 596, 70, 13" CvTextArgument="Six Months" CvType="Text" DesignTimeRectangle="394, 587, 162, 35" ElementType="ListItem" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='pageContent' tag='DIV' /&gt;&lt;webctrl idx='6' parentid=':r18:' shadowhostid='pageContent' tag='LI' /&gt;" Guid="f8b38a92-916c-4b64-843a-be2005ec2573" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Dentrix Ascend - Overview' /&gt;" SearchSteps="Selector, CV" Version="V6" WaitForReadyArgument="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="a8b85833-ec8d-4397-ad88-3d3fe3fd0084" CvTextArea="392, 359, 35, 15" CvTextArgument="Date" CvType="Text" DesignTimeRectangle="393, 350, 250, 36" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='pageContent' tag='DIV' matching:id='fuzzy' fuzzylevel:id='0.0' /&gt;&lt;webctrl aaname='Date' shadowhostid='pageContent' tag='DIV' type='' class='sc-fDAHlQ hlNceR' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' matching:shadowhostid='fuzzy' fuzzylevel:shadowhostid='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' check:innerText='Date' /&gt;" Guid="9e08e631-11ee-44e9-8829-667b0d94b01f" SearchSteps="FuzzySelector, CV" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="b13f02972daa8f6562375db9ad350308.png" xmlns="">0KOTF-FtCQ0qvry7aOAuetg</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

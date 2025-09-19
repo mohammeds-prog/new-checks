@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Which Operatories",
+  "Type": "Element",
+  "TaxonomyType": "Input",
+  "Id": "Jv8I8A4XEEueLyBEWJ7pQA",
+  "Reference": "bDeRzFDvPUq3Ep_a0YoV-Q/Jv8I8A4XEEueLyBEWJ7pQA",
+  "ParentRef": "bDeRzFDvPUq3Ep_a0YoV-Q/R8U6cQzL_kynsdix-hwBCA",
+  "Created": "2025-09-19T13:32:13.6905801Z",
+  "Updated": "2025-09-19T13:32:13.6905801Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.15.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

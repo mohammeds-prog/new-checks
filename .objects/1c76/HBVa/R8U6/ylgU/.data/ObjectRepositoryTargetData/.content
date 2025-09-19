@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="GubgZytGN0aXX2EUTd0evw" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="live6.dentrixascend.com/pm" CVScreenId="61c4be6d-a0ab-48b4-a0ee-2d41e9720072" CvElementArea="532, 629, 16, 18" CvTextArea="411, 631, 94, 16" CvTextArgument="Custom Range" CvType="ArrowButton" DesignTimeRectangle="394, 622, 162, 34" ElementType="ListItem" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='pageContent' tag='DIV' /&gt;&lt;webctrl idx='7' parentid=':r18:' shadowhostid='pageContent' tag='LI' /&gt;" Guid="65de0ed9-5458-4521-8a93-a13326eb6b50" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Dentrix Ascend - Overview' /&gt;" SearchSteps="Selector, CV" Version="V6" WaitForReadyArgument="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="ecd23cb4b041d19b1a94182bbcad14b8.png" xmlns="">0nK3cxZNxk0WLDcPn7qqtmw</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

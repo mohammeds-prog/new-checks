@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:uga="clr-namespace:UiPath.GSuite.Activities;assembly=UiPath.GSuite.Activities" xmlns:ugace="clr-namespace:UiPath.GSuite.Activities.Calendar.Enums;assembly=UiPath.GSuite.Activities" xmlns:ugacm="clr-namespace:UiPath.GSuite.Activities.Calendar.Models;assembly=UiPath.GSuite.Activities" xmlns:ugcm="clr-namespace:UiPath.GSuite.Calendar.Models;assembly=UiPath.GSuite" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.GSuite.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -50,6 +50,12 @@
       <x:String>System.Numerics</x:String>
       <x:String>UiPath.Activities.System.Arrays</x:String>
       <x:String>UiPath.Semantic.Activities</x:String>
+      <x:String>UiPath.GSuite.Activities.Calendar.Enums</x:String>
+      <x:String>UiPath.GSuite.Calendar.Models</x:String>
+      <x:String>UiPath.GSuite.Activities.Calendar.Models</x:String>
+      <x:String>Google.Apis.Calendar.v3.Data</x:String>
+      <x:String>Google.Apis.Requests</x:String>
+      <x:String>UiPath.GSuite</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -113,11 +119,19 @@
       <AssemblyReference>System.Linq.Parallel</AssemblyReference>
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite</AssemblyReference>
+      <AssemblyReference>netstandard</AssemblyReference>
+      <AssemblyReference>Google.Apis.Calendar.v3</AssemblyReference>
+      <AssemblyReference>Google.Apis.Core</AssemblyReference>
+      <AssemblyReference>Google.Apis</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="1293,4743" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="1293,10360" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <Sequence.Variables>
-      <Variable x:TypeArguments="x:String" Name="variable1" />
+      <Variable x:TypeArguments="scg:List(ugcm:GSuiteEventItem)" Name="todayevents" />
       <Variable x:TypeArguments="x:String" Name="availableText" />
       <Variable x:TypeArguments="x:String" Name="unavailableText" />
       <Variable x:TypeArguments="scg:List(s:Tuple(s:DateTime, s:DateTime))" Name="availableSlots" />
@@ -140,23 +154,284 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Chrome Dentrix Ascend" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="574,4720" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="fee03a61-1f22-4d56-9083-93dbf2e22507" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Chrome Dentrix Ascend" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="574,10337" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="fee03a61-1f22-4d56-9083-93dbf2e22507" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="540,4479" sap2010:WorkflowViewState.IdRef="Sequence_1">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="540,10096" sap2010:WorkflowViewState.IdRef="Sequence_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[table]" DisplayName="Extract Table Data 'Extract Table Data'" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Table' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Date' ReferenceIdx='0' Name='Date'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Time' ReferenceIdx='1' Name='Time'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Provider' ReferenceIdx='2' Name='Provider'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Operatory' ReferenceIdx='3' Name='Operatory'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Template' ReferenceIdx='4' Name='Template'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Date' attr='fulltext' /&gt;&lt;column name='Time' attr='fulltext' /&gt;&lt;column name='Provider' attr='fulltext' /&gt;&lt;column name='Operatory' attr='fulltext' /&gt;&lt;column name='Template' attr='fulltext' /&gt;&lt;/extract-table&gt;" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="506,190" sap2010:WorkflowViewState.IdRef="NExtractData_2" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="fee03a61-1f22-4d56-9083-93dbf2e22507" Version="V5">
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Date'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="506,227" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="fee03a61-1f22-4d56-9083-93dbf2e22507" Version="V5">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="live6.dentrixascend.com/pm" CVScreenId="3764e787-1503-4150-b051-d8bbcde46e87" ContentHash="oraWqaPowU2jgRYPn5NWug" CvElementArea="393, 385, 226, 28" CvType="InputBox" DesignTimeRectangle="393, 386, 225, 26" ElementType="InputBox" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;webctrl id='pageContent' tag='DIV' matching:id='fuzzy' fuzzylevel:id='0.0' /&gt;&lt;webctrl shadowhostid='pageContent' tag='INPUT' type='text' class='sc-liYoWl dVacQu' aaname='' matching:shadowhostid='fuzzy' fuzzylevel:shadowhostid='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="129cd262-5675-441a-9ed2-41b22712cfc7" InformativeScreenshot="bcf030d8b46f8b863bc0e031256ead09.png" IsResponsive="True" Reference="bDeRzFDvPUq3Ep_a0YoV-Q/9DQtpHJ_ZUiAAlEDSCWFIw" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Dentrix Ascend - Overview' /&gt;" SearchSteps="FuzzySelector, CV" Version="V6" WaitForReadyArgument="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target CVScreenId="3764e787-1503-4150-b051-d8bbcde46e87" CvTextArea="392, 359, 35, 15" CvTextArgument="Date" CvType="Text" DesignTimeRectangle="393, 350, 250, 36" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='pageContent' tag='DIV' matching:id='fuzzy' fuzzylevel:id='0.0' /&gt;&lt;webctrl aaname='Date' shadowhostid='pageContent' tag='DIV' type='' class='sc-fDAHlQ hlNceR' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' matching:shadowhostid='fuzzy' fuzzylevel:shadowhostid='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' check:innerText='Date' /&gt;" Guid="392d29eb-9762-40f3-9b6d-b25a842fde9a" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+              <uix:NClick.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NClick.VerifyOptions>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Six Months'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="506,190" sap2010:WorkflowViewState.IdRef="NClick_13" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="fee03a61-1f22-4d56-9083-93dbf2e22507" Version="V5">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="live6.dentrixascend.com/pm" CVScreenId="f4b54198-44b9-43af-88ef-a3f683880ef4" ContentHash="3p6JRoXUB0i7MoAC3LFDvQ" CvTextArea="411, 596, 71, 13" CvTextArgument="Six Months" CvType="Text" DesignTimeRectangle="394, 587, 162, 35" ElementType="ListItem" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='pageContent' tag='DIV' /&gt;&lt;webctrl idx='6' parentid=':r18:' shadowhostid='pageContent' tag='LI' /&gt;" Guid="914a8dfc-f3a0-4ae1-a16e-0948de37d568" InformativeScreenshot="586eaac7c959e84d09dc124c28bf69be.png" Reference="bDeRzFDvPUq3Ep_a0YoV-Q/v-j0w-hKfUOBldF57cfYFQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Dentrix Ascend - Overview' /&gt;" SearchSteps="Selector, CV" Version="V6" WaitForReadyArgument="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Which Appointment Provi…'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="506,227" sap2010:WorkflowViewState.IdRef="NClick_3" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="fee03a61-1f22-4d56-9083-93dbf2e22507" Version="V5">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="live6.dentrixascend.com/pm" CVScreenId="9eae2811-e6a5-4ece-86c9-bbeef328eca0" ContentHash="BKK1N5xKkUW2jStFnW-wvw" CvElementArea="393, 842, 251, 28" CvType="InputBox" DesignTimeRectangle="393, 844, 250, 26" ElementType="InputBox" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;webctrl id='pageContent' tag='DIV' matching:id='fuzzy' fuzzylevel:id='0.0' /&gt;&lt;webctrl class='sc-jdmjiD sc-hLLwan hFTIqj jmlHvm' placeholder='Select' shadowhostid='pageContent' tag='INPUT' type='text' aaname='' matching:class='fuzzy' fuzzylevel:class='0.0' matching:shadowhostid='fuzzy' fuzzylevel:shadowhostid='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="247a80f2-fa8e-4a51-b158-58748672922b" InformativeScreenshot="882e01172933a713bf7b5c9cdc762773.png" IsResponsive="True" Reference="bDeRzFDvPUq3Ep_a0YoV-Q/VPGP_Wfrp0S5GalQ4kD9OA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Dentrix Ascend - Overview' /&gt;" SearchSteps="FuzzySelector, CV" Version="V6" WaitForReadyArgument="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target CVScreenId="9eae2811-e6a5-4ece-86c9-bbeef328eca0" CvTextArea="391, 817, 212, 15" CvTextArgument="Which Appointment Providers" CvType="Text" DesignTimeRectangle="393, 808, 250, 36" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='pageContent' tag='DIV' matching:id='fuzzy' fuzzylevel:id='0.0' /&gt;&lt;webctrl aaname='Which Appointment Providers' shadowhostid='pageContent' tag='DIV' type='' class='sc-fDAHlQ hlNceR' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' matching:shadowhostid='fuzzy' fuzzylevel:shadowhostid='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' check:innerText='Which Appointment Providers' /&gt;" Guid="ef9d58ee-c1b7-439b-9f8c-ac7b66f87b2d" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+              <uix:NClick.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NClick.VerifyOptions>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Select All'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="506,227" sap2010:WorkflowViewState.IdRef="NClick_4" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="fee03a61-1f22-4d56-9083-93dbf2e22507" Version="V5">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="live6.dentrixascend.com/pm" CVScreenId="fc752857-f1e9-4a0c-a05d-10f1714cb4b6" ContentHash="Uim517SimUCWX3Tc3h35bw" CvElementArea="404, 614, 19, 19" CvTextArea="429, 616, 55, 13" CvTextArgument="Select All" CvType="CheckBox" DesignTimeRectangle="406, 615, 77, 18" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='pageContent' tag='DIV' /&gt;&lt;webctrl aaname='Select All' shadowhostid='pageContent' tag='LABEL' /&gt;" Guid="7423aacb-36f9-4646-9e07-e56d0b7a1882" InformativeScreenshot="a5a2e2bf05877d8fea200115daf0b8b5.png" Reference="bDeRzFDvPUq3Ep_a0YoV-Q/59bS6zBk6ECRV08ko-StPA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Dentrix Ascend - Overview' /&gt;" SearchSteps="Selector, CV" Version="V6" WaitForReadyArgument="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target CVScreenId="fc752857-f1e9-4a0c-a05d-10f1714cb4b6" CvTextArea="392, 553, 88, 18" CvTextArgument="Time Range" CvType="Text" DesignTimeRectangle="393, 544, 250, 36" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='pageContent' tag='DIV' matching:id='fuzzy' fuzzylevel:id='0.0' /&gt;&lt;webctrl aaname='Time Range' shadowhostid='pageContent' tag='DIV' type='' class='sc-fDAHlQ hlNceR' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' matching:shadowhostid='fuzzy' fuzzylevel:shadowhostid='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' check:innerText='Time Range' /&gt;" Guid="4299fac8-d00d-40f7-8ab8-8231d9ad9e80" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+              <uix:NClick.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NClick.VerifyOptions>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Alora Dental Spa'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="506,227" sap2010:WorkflowViewState.IdRef="NClick_5" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="fee03a61-1f22-4d56-9083-93dbf2e22507" Version="V5">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="live6.dentrixascend.com/pm" CVScreenId="4df0e0f2-b7dc-4b1a-b9b6-83d2d17de0a5" ContentHash="MhxXhWalJku7-Ge8sNgW1A" CvElementArea="404, 645, 20, 19" CvTextArea="428, 646, 100, 16" CvTextArgument="Alora Dental Spa" CvType="CheckBox" DesignTimeRectangle="406, 645, 122, 18" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='pageContent' tag='DIV' /&gt;&lt;webctrl aaname='Alora Dental Spa' shadowhostid='pageContent' tag='LABEL' /&gt;" Guid="fec76426-d2eb-4700-ab04-ef2a74da22bd" InformativeScreenshot="c0f48933e889213d824dba6d51b8028b.png" Reference="bDeRzFDvPUq3Ep_a0YoV-Q/Zfbp7Muj0kmaqhNfFdxTBw" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Dentrix Ascend - Overview' /&gt;" SearchSteps="Selector, CV" Version="V6" WaitForReadyArgument="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target CVScreenId="4df0e0f2-b7dc-4b1a-b9b6-83d2d17de0a5" CvTextArea="392, 553, 88, 18" CvTextArgument="Time Range" CvType="Text" DesignTimeRectangle="393, 544, 250, 36" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='pageContent' tag='DIV' matching:id='fuzzy' fuzzylevel:id='0.0' /&gt;&lt;webctrl aaname='Time Range' shadowhostid='pageContent' tag='DIV' type='' class='sc-fDAHlQ hlNceR' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' matching:shadowhostid='fuzzy' fuzzylevel:shadowhostid='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' check:innerText='Time Range' /&gt;" Guid="821fc6a4-0b28-4c7c-bd34-6ba433400492" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+              <uix:NClick.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NClick.VerifyOptions>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Which Operatories'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="506,227" sap2010:WorkflowViewState.IdRef="NClick_6" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="fee03a61-1f22-4d56-9083-93dbf2e22507" Version="V5">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="live6.dentrixascend.com/pm" CVScreenId="f756e691-319d-4f1b-aedf-03fb38724e02" ContentHash="Sr_AlpH5hUysZaIZ9P9Cxw" CvElementArea="393, 921, 251, 28" CvType="InputBox" DesignTimeRectangle="393, 922, 250, 26" ElementType="InputBox" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;webctrl id='pageContent' tag='DIV' matching:id='fuzzy' fuzzylevel:id='0.0' /&gt;&lt;webctrl class='sc-jdmjiD sc-hLLwan hFTIqj jmlHvm' placeholder='Select' shadowhostid='pageContent' tag='INPUT' type='text' aaname='' matching:class='fuzzy' fuzzylevel:class='0.0' matching:shadowhostid='fuzzy' fuzzylevel:shadowhostid='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="3378b617-16d3-4bf7-b474-f2434b6e7a98" InformativeScreenshot="e4ee6bc47ee6860295a2175e7ef514b0.png" IsResponsive="True" Reference="bDeRzFDvPUq3Ep_a0YoV-Q/Jv8I8A4XEEueLyBEWJ7pQA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Dentrix Ascend - Overview' /&gt;" SearchSteps="FuzzySelector, CV" Version="V6" WaitForReadyArgument="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target CVScreenId="f756e691-319d-4f1b-aedf-03fb38724e02" CvTextArea="391, 895, 135, 18" CvTextArgument="Which Operatories" CvType="Text" DesignTimeRectangle="393, 886, 250, 36" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='pageContent' tag='DIV' matching:id='fuzzy' fuzzylevel:id='0.0' /&gt;&lt;webctrl aaname='Which Operatories' parentid='pageContent' shadowhostid='pageContent' tag='DIV' type='' class='sc-fDAHlQ hlNceR' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' matching:parentid='fuzzy' fuzzylevel:parentid='0.0' matching:shadowhostid='fuzzy' fuzzylevel:shadowhostid='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' check:innerText='Which Operatories' /&gt;" Guid="8409d1d9-9369-4889-a3bd-f1b12bab41bb" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+              <uix:NClick.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NClick.VerifyOptions>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Select All(1)'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="506,227" sap2010:WorkflowViewState.IdRef="NClick_7" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="fee03a61-1f22-4d56-9083-93dbf2e22507" Version="V5">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="live6.dentrixascend.com/pm" CVScreenId="85e23c35-88cd-430e-a53d-d73d13a4ac97" ContentHash="QpnCu-Eet02uwAajGrSZXw" CvElementArea="404, 806, 19, 19" CvTextArea="429, 808, 55, 13" CvTextArgument="Select All" CvType="CheckBox" DesignTimeRectangle="406, 807, 77, 18" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='pageContent' tag='DIV' /&gt;&lt;webctrl aaname='Select All' shadowhostid='pageContent' tag='LABEL' /&gt;" Guid="b9e9497b-9c47-467f-a3d5-03ca95775c60" InformativeScreenshot="114381422be06b2a2b439a0396e27537.png" Reference="bDeRzFDvPUq3Ep_a0YoV-Q/KtuSL7xcpkGnLdHYcjAEAQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Dentrix Ascend - Overview' /&gt;" SearchSteps="Selector, CV" Version="V6" WaitForReadyArgument="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target CVScreenId="85e23c35-88cd-430e-a53d-d73d13a4ac97" CvTextArea="391, 739, 157, 18" CvTextArgument="Appointment Duration" CvType="Text" DesignTimeRectangle="393, 730, 250, 36" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='pageContent' tag='DIV' matching:id='fuzzy' fuzzylevel:id='0.0' /&gt;&lt;webctrl aaname='Appointment Duration' shadowhostid='pageContent' tag='DIV' type='' class='sc-fDAHlQ hlNceR' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' matching:shadowhostid='fuzzy' fuzzylevel:shadowhostid='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' check:innerText='Appointment Duration' /&gt;" Guid="bb35a88d-3489-408f-9246-8c6f313e9bcc" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+              <uix:NClick.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NClick.VerifyOptions>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Dr. Patel - Operatory 1'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="506,227" sap2010:WorkflowViewState.IdRef="NClick_8" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="fee03a61-1f22-4d56-9083-93dbf2e22507" Version="V5">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="live6.dentrixascend.com/pm" CVScreenId="46e4c17a-6de8-4835-9375-91ee3a92d7e4" ContentHash="wK8wbIdyAE2-J3nCZumL0A" CvElementArea="404, 837, 20, 19" CvTextArea="429, 838, 130, 13" CvTextArgument="Dr. Patel - Operatory 1" CvType="CheckBox" DesignTimeRectangle="406, 837, 154, 18" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='pageContent' tag='DIV' /&gt;&lt;webctrl aaname='Dr. Patel - Operatory 1' shadowhostid='pageContent' tag='LABEL' /&gt;" Guid="d8bca63d-cfb3-45e4-8f24-87b927bc68a1" InformativeScreenshot="4f3c62feca7cf4403e43b1e971cde088.png" Reference="bDeRzFDvPUq3Ep_a0YoV-Q/5uI0o6-STEOM8mq6jRhmyQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Dentrix Ascend - Overview' /&gt;" SearchSteps="Selector, CV" Version="V6" WaitForReadyArgument="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target CVScreenId="46e4c17a-6de8-4835-9375-91ee3a92d7e4" CvTextArea="391, 739, 157, 18" CvTextArgument="Appointment Duration" CvType="Text" DesignTimeRectangle="393, 730, 250, 36" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='pageContent' tag='DIV' matching:id='fuzzy' fuzzylevel:id='0.0' /&gt;&lt;webctrl aaname='Appointment Duration' shadowhostid='pageContent' tag='DIV' type='' class='sc-fDAHlQ hlNceR' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' matching:shadowhostid='fuzzy' fuzzylevel:shadowhostid='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' check:innerText='Appointment Duration' /&gt;" Guid="4c7a5aa9-a2d0-46ab-9258-f6470b2eb740" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+              <uix:NClick.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NClick.VerifyOptions>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Search'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="506,227" sap2010:WorkflowViewState.IdRef="NClick_9" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="fee03a61-1f22-4d56-9083-93dbf2e22507" Version="V5">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="live6.dentrixascend.com/pm" CVScreenId="47bee6af-15d4-4e7e-8b7b-c6bf4ed3cc04" ContentHash="pdYKx25kwkqTulWTQJEFVA" CvElementArea="381, 970, 78, 32" CvTextArea="399, 978, 43, 13" CvTextArgument="Search" CvType="Button" DesignTimeRectangle="383, 972, 75, 28" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='pageContent' tag='DIV' /&gt;&lt;webctrl aaname='Search' shadowhostid='pageContent' tag='BUTTON' /&gt;" Guid="2556dc88-e8fe-474d-afc1-27b9a6252907" InformativeScreenshot="7f3630182969f15d9b4be0e29d7cbd16.png" Reference="bDeRzFDvPUq3Ep_a0YoV-Q/Uo6FmQbU0EO2dZLKlEtwgA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Dentrix Ascend - Overview' /&gt;" SearchSteps="Selector, CV" Version="V6" WaitForReadyArgument="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target CVScreenId="47bee6af-15d4-4e7e-8b7b-c6bf4ed3cc04" CvElementArea="466, 971, 70, 30" CvTextArea="485, 978, 35, 13" CvTextArgument="Reset" CvType="Button" DesignTimeRectangle="468, 972, 68, 28" ElementType="Button" FuzzySelectorArgument="&lt;webctrl id='pageContent' tag='DIV' matching:id='fuzzy' fuzzylevel:id='0.0' /&gt;&lt;webctrl aaname='Reset' shadowhostid='pageContent' tag='BUTTON' type='' class='sc-iAfbPD jPBBSe' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' matching:shadowhostid='fuzzy' fuzzylevel:shadowhostid='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' check:innerText='Reset' /&gt;" Guid="2ea62c48-801f-4cf9-8f65-83aa70d6d11e" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+              <uix:NClick.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NClick.VerifyOptions>
+            </uix:NClick>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Showing'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="506,227" sap2010:WorkflowViewState.IdRef="NClick_12" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="fee03a61-1f22-4d56-9083-93dbf2e22507" Version="V5">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="live6.dentrixascend.com/pm" CVScreenId="4d321104-0f7b-4cbb-9d72-c7e7dd6b8990" ContentHash="uMFJFzrSMUW5qHGz0BGKCA" CvElementArea="727, 971, 55, 28" CvType="InputBox" DesignTimeRectangle="728, 972, 52, 26" ElementType="DropDown" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='pageContent' tag='DIV' /&gt;&lt;webctrl shadowhostid='pageContent' tag='SELECT' /&gt;" Guid="b0f4dc33-2b41-46b4-91c9-950b6a5d554d" InformativeScreenshot="862d9f9b80632f5a366a74ec5952f6d5.png" Reference="bDeRzFDvPUq3Ep_a0YoV-Q/L-m04Nfyv0uxB8M_fQBrMQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Dentrix Ascend - Overview' /&gt;" SearchSteps="Selector, CV" Version="V6" WaitForReadyArgument="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target CVScreenId="4d321104-0f7b-4cbb-9d72-c7e7dd6b8990" CvTextArea="672, 977, 51, 16" CvTextArgument="Showing" CvType="Text" DesignTimeRectangle="673, 977, 50, 15" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='pageContent' tag='DIV' matching:id='fuzzy' fuzzylevel:id='0.0' /&gt;&lt;webctrl aaname='Showing' shadowhostid='pageContent' tag='LABEL' type='' class='' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' matching:shadowhostid='fuzzy' fuzzylevel:shadowhostid='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' check:innerText='Showing' /&gt;" Guid="93874e05-044f-45a6-88d8-403b25c2bf67" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NClick.Target>
+              <uix:NClick.VerifyOptions>
+                <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                  <uix:VerifyExecutionOptions.Retry>
+                    <InArgument x:TypeArguments="x:Boolean" />
+                  </uix:VerifyExecutionOptions.Retry>
+                  <uix:VerifyExecutionOptions.Timeout>
+                    <InArgument x:TypeArguments="x:Double" />
+                  </uix:VerifyExecutionOptions.Timeout>
+                </uix:VerifyExecutionOptions>
+              </uix:NClick.VerifyOptions>
+            </uix:NClick>
+            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="506,170" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="down" KeyModifiers="None" SpecialKey="True">
+              <ui:SendHotkey.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="9961c46a-74ca-4261-8bfc-81bbcc158057">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:SendHotkey.Target>
+            </ui:SendHotkey>
+            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="506,170" sap2010:WorkflowViewState.IdRef="SendHotkey_3" Key="down" KeyModifiers="None" SpecialKey="True">
+              <ui:SendHotkey.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="9961c46a-74ca-4261-8bfc-81bbcc158057">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:SendHotkey.Target>
+            </ui:SendHotkey>
+            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="506,170" sap2010:WorkflowViewState.IdRef="SendHotkey_4" Key="down" KeyModifiers="None" SpecialKey="True">
+              <ui:SendHotkey.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="9961c46a-74ca-4261-8bfc-81bbcc158057">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:SendHotkey.Target>
+            </ui:SendHotkey>
+            <ui:SendHotkey ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Send Hotkey" sap:VirtualizedContainerService.HintSize="506,170" sap2010:WorkflowViewState.IdRef="SendHotkey_2" Key="enter" KeyModifiers="None" SpecialKey="True">
+              <ui:SendHotkey.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" Id="ba7fa2fe-cc42-4072-86e2-ccb301807ead">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:SendHotkey.Target>
+            </ui:SendHotkey>
+            <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[table]" DisplayName="Extract Table Data 'Extract Table Data(2)'" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Table' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Date' ReferenceIdx='0' Name='Date'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xD;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Time' ReferenceIdx='1' Name='Time'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xD;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Provider' ReferenceIdx='2' Name='Provider'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xD;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Operatory' ReferenceIdx='3' Name='Operatory'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xD;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Template' ReferenceIdx='4' Name='Template'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xD;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataNextLink' /&gt;&#xD;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Date' attr='fulltext' /&gt;&lt;column name='Time' attr='fulltext' /&gt;&lt;column name='Provider' attr='fulltext' /&gt;&lt;column name='Operatory' attr='fulltext' /&gt;&lt;column name='Template' attr='fulltext' /&gt;&lt;/extract-table&gt;" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="506,190" sap2010:WorkflowViewState.IdRef="NExtractData_4" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="fee03a61-1f22-4d56-9083-93dbf2e22507" Version="V5">
+              <uix:NExtractData.NextLink>
+                <uix:TargetAnchorable BrowserURL="live6.dentrixascend.com/pm" CVScreenId="008c4278-cdfe-403a-811d-ed8adc1af7f4" CvTextArea="1496, 977, 28, 13" CvTextArgument="Next" CvType="Text" DesignTimeRectangle="1488, 971, 43, 28" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='pageContent' tag='DIV' /&gt;&lt;webctrl aaname='Next' shadowhostid='pageContent' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl id='pageContent' tag='DIV' matching:id='fuzzy' fuzzylevel:id='0.0' /&gt;&lt;webctrl aaname='Next' shadowhostid='pageContent' tag='A' type='' class='sc-boIuDr dnpzOi' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' matching:shadowhostid='fuzzy' fuzzylevel:shadowhostid='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' check:innerText='Next' /&gt;" Guid="bc458122-d753-4a21-9af8-162a13dc82b3" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Dentrix Ascend - Overview' /&gt;" SearchSteps="Selector, CV" Version="V6" WaitForReadyArgument="Interactive">
+                  <uix:TargetAnchorable.PointOffset>
+                    <uix:PointOffset X="0" Y="0" />
+                  </uix:TargetAnchorable.PointOffset>
+                </uix:TargetAnchorable>
+              </uix:NExtractData.NextLink>
               <uix:NExtractData.Target>
-                <uix:TargetAnchorable BrowserURL="https://live6.dentrixascend.com/pm#/appointmentSearch" ContentHash="bNL1N1OC90qriUq3nJB_yg" DesignTimeRectangle="529, 381, 1305, 5669" DesignTimeScaleFactor="1.5" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='pageContent' tag='DIV' /&gt;&lt;webctrl shadowhostid='pageContent' tag='TABLE' /&gt;" Guid="c2af85c6-d26f-4fef-8cb5-48daa8847872" InformativeScreenshot="457af078c85d02659f75256c0d4e6e45.png" Reference="bDeRzFDvPUq3Ep_a0YoV-Q/jipyj7XzoEuvjgYOYyjbMQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Dentrix Ascend' /&gt;" SearchSteps="Selector" Version="V6" />
+                <uix:TargetAnchorable BrowserURL="https://live6.dentrixascend.com/pm#/appointmentSearch" ContentHash="jYegnrLGd0iqMvsu3b2fdA" DesignTimeRectangle="673, 255, 870, 4201" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='pageContent' tag='DIV' /&gt;&lt;webctrl shadowhostid='pageContent' tag='TABLE' /&gt;" Guid="936f997c-c7a8-4d83-961c-aed9048e778b" InformativeScreenshot="8f608285b855d863a4b69ff4c9671ff4.png" Reference="bDeRzFDvPUq3Ep_a0YoV-Q/IsREg20fkkuLJl8pRI_KJA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Dentrix Ascend - Overview' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
               </uix:NExtractData.Target>
             </uix:NExtractData>
+            <uga:GetEventListConnections Calendar="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" SimpleSearch="{x:Null}" AuthScopesInvalid="False" BrowserCalendarFriendlyName="Alora" BrowserCalendarId="c_fc70651d1b8516deb7fad76b4de91fdb49a6672517d4e93c07ff77232707ef1a@group.calendar.google.com" CalendarInputMode="Browse" ConnectionId="1c061e5f-8693-49ee-8dd6-8aa84c36477d" DisplayName="Get Event List" EndDate="2026-03-24 +00:00" EventList="[todayevents]" sap:VirtualizedContainerService.HintSize="506,289" sap2010:WorkflowViewState.IdRef="GetEventListConnections_2" MaxResults="1000000000" PreferredReturnTimezone="UTC" StartDate="2025-09-18 +00:00" UseConnectionService="True">
+              <uga:GetEventListConnections.CalendarArgument>
+                <ugacm:CalendarArgument Backup="{x:Reference __ReferenceID0}" ConnectionDescriptor="{x:Null}" ConnectionKey="{x:Null}" Existing="{x:Null}" BrowserId="c_fc70651d1b8516deb7fad76b4de91fdb49a6672517d4e93c07ff77232707ef1a@group.calendar.google.com" FriendlyName="Alora" InputMode="Browse" />
+              </uga:GetEventListConnections.CalendarArgument>
+              <uga:GetEventListConnections.CalendarIdBackup>
+                <usau:BackupSlot x:TypeArguments="ugace:ECalendarMode" x:Name="__ReferenceID0" StoredValue="Browse">
+                  <usau:BackupSlot.BackupValues>
+                    <scg:Dictionary x:TypeArguments="ugace:ECalendarMode, scg:List(x:Object)" />
+                  </usau:BackupSlot.BackupValues>
+                </usau:BackupSlot>
+              </uga:GetEventListConnections.CalendarIdBackup>
+            </uga:GetEventListConnections>
             <Assign sap:VirtualizedContainerService.HintSize="506,115" sap2010:WorkflowViewState.IdRef="Assign_11">
               <Assign.To>
                 <OutArgument x:TypeArguments="scg:List(s:Tuple(s:DateTime, s:DateTime))">[allSlots]</OutArgument>
@@ -406,7 +681,100 @@
               </Assign.Value>
             </Assign>
             <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="506,177" sap2010:WorkflowViewState.IdRef="LogMessage_8" Message="[availableText]" />
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="506,170" sap2010:WorkflowViewState.IdRef="LogMessage_6" Message="[unavailableText]" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="506,177" sap2010:WorkflowViewState.IdRef="LogMessage_6" Message="[unavailableText]" />
+            <ui:ForEach x:TypeArguments="s:Tuple(s:DateTime, s:DateTime)" CurrentIndex="{x:Null}" DisplayName="For Each currentTupleOfDateTimeAndDateTime" sap:VirtualizedContainerService.HintSize="506,1399" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[unavailableSlots]">
+              <ui:ForEach.Body>
+                <ActivityAction x:TypeArguments="s:Tuple(s:DateTime, s:DateTime)">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="s:Tuple(s:DateTime, s:DateTime)" Name="currentTupleOfDateTimeAndDateTime" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="486,1268" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="452,177" sap2010:WorkflowViewState.IdRef="LogMessage_13" Message="[&quot;Comparing slot: &quot; &amp; currentTupleOfDateTimeAndDateTime.Item1.ToString(&quot;yyyy-MM-dd HH:mm&quot;) &amp; &quot;-&quot; &amp; currentTupleOfDateTimeAndDateTime.Item2.ToString(&quot;HH:mm&quot;) &amp;&#xD;&#xA;vbCrLf &amp; &quot;Against todayEvents (America/Chicago):&quot; &amp;&#xD;&#xA;vbCrLf &amp; String.Join(vbCrLf, todayEvents.Select(Function(ev) ev.Summary &amp; &quot; | &quot; &amp;&#xD;&#xA;    TimeZoneInfo.ConvertTimeBySystemTimeZoneId(ev.Start.DateTime, &quot;America/Chicago&quot;).ToString(&quot;yyyy-MM-dd HH:mm&quot;) &amp; &quot;-&quot; &amp;&#xD;&#xA;    TimeZoneInfo.ConvertTimeBySystemTimeZoneId(ev.End.DateTime, &quot;America/Chicago&quot;).ToString(&quot;HH:mm&quot;)&#xD;&#xA;))]" />
+                    <If Condition="[todayEvents.Any(Function(ev) ev.Summary.Contains(&quot;Unavailable appointments&quot;) AndAlso TimeZoneInfo.ConvertTimeBySystemTimeZoneId(ev.Start.DateTime, &quot;America/Chicago&quot;).Equals(currentTupleOfDateTimeAndDateTime.Item1) AndAlso TimeZoneInfo.ConvertTimeBySystemTimeZoneId(ev.End.DateTime, &quot;America/Chicago&quot;).Equals(currentTupleOfDateTimeAndDateTime.Item2))]" sap:VirtualizedContainerService.HintSize="452,1031" sap2010:WorkflowViewState.IdRef="If_3">
+                      <If.Then>
+                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,228" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="LogMessage_9" Message="[&quot;SKIPPED | Slot: &quot; &amp; currentTupleOfDateTimeAndDateTime.Item1.ToString(&quot;HH:mm&quot;) &amp; &quot;-&quot; &amp; currentTupleOfDateTimeAndDateTime.Item2.ToString(&quot;HH:mm&quot;)]" />
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,673" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <uga:CreateEventConnections Calendar="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" Location="{x:Null}" OptionalAttendees="{x:Null}" Recurrence="{x:Null}" RequiredAttendees="{x:Null}" ResourceAttendees="{x:Null}" Result="{x:Null}" AddConferenceData="False" AllDayEvent="False" AuthScopesInvalid="False" BrowserCalendarFriendlyName="Alora" BrowserCalendarId="c_fc70651d1b8516deb7fad76b4de91fdb49a6672517d4e93c07ff77232707ef1a@group.calendar.google.com" CalendarInputMode="Browse" ConnectionId="1c061e5f-8693-49ee-8dd6-8aa84c36477d" DisplayName="Create Event" EndDateTime="[currentTupleOfDateTimeAndDateTime.Item2]" GuestCanInviteOthers="True" GuestCanModifyEvent="False" GuestCanSeeAttendeesList="True" sap:VirtualizedContainerService.HintSize="416,445" sap2010:WorkflowViewState.IdRef="CreateEventConnections_1" PreferredReturnTimezone="America/Chicago" SendNotification="ALL" ShowAs="Opaque" StartDateTime="[currentTupleOfDateTimeAndDateTime.Item1]" Timezone="America/Chicago" Title="Unavailable appointments" UseConnectionService="True" Visibility="DEFAULT">
+                            <uga:CreateEventConnections.CalendarArgument>
+                              <ugacm:CalendarArgument Backup="{x:Reference __ReferenceID1}" ConnectionDescriptor="{x:Null}" Existing="{x:Null}" BrowserId="c_fc70651d1b8516deb7fad76b4de91fdb49a6672517d4e93c07ff77232707ef1a@group.calendar.google.com" ConnectionKey="1c061e5f-8693-49ee-8dd6-8aa84c36477d" FriendlyName="Alora" InputMode="Browse" />
+                            </uga:CreateEventConnections.CalendarArgument>
+                            <uga:CreateEventConnections.CalendarIdBackup>
+                              <usau:BackupSlot x:TypeArguments="ugace:ECalendarMode" x:Name="__ReferenceID1" StoredValue="Browse">
+                                <usau:BackupSlot.BackupValues>
+                                  <scg:Dictionary x:TypeArguments="ugace:ECalendarMode, scg:List(x:Object)" />
+                                </usau:BackupSlot.BackupValues>
+                              </usau:BackupSlot>
+                            </uga:CreateEventConnections.CalendarIdBackup>
+                            <uga:CreateEventConnections.Description>
+                              <InArgument x:TypeArguments="x:String" />
+                            </uga:CreateEventConnections.Description>
+                          </uga:CreateEventConnections>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="LogMessage_11" Message="[&quot;CREATED | Slot: &quot; &amp; currentTupleOfDateTimeAndDateTime.Item1.ToString(&quot;yyyy-MM-dd HH:mm&quot;) &amp; &quot;-&quot; &amp; currentTupleOfDateTimeAndDateTime.Item2.ToString(&quot;HH:mm&quot;)]" />
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEach.Body>
+            </ui:ForEach>
+            <ui:ForEach x:TypeArguments="ugcm:GSuiteEventItem" CurrentIndex="{x:Null}" DisplayName="For Each currentGSuiteEventItem" sap:VirtualizedContainerService.HintSize="506,1009" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[todayevents]">
+              <ui:ForEach.Body>
+                <ActivityAction x:TypeArguments="ugcm:GSuiteEventItem">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="ugcm:GSuiteEventItem" Name="currentGSuiteEventItem" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="486,885" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If Condition="[currentGSuiteEventItem.Summary.Contains(&quot;Unavailable appointments&quot;) AndAlso Not unavailableSlots.Any(Function(slot) slot.Item1.Equals(TimeZoneInfo.ConvertTimeBySystemTimeZoneId(currentGSuiteEventItem.Start.DateTime, &quot;America/Chicago&quot;)) AndAlso slot.Item2.Equals(TimeZoneInfo.ConvertTimeBySystemTimeZoneId(currentGSuiteEventItem.End.DateTime, &quot;America/Chicago&quot;)))]" sap:VirtualizedContainerService.HintSize="452,825" sap2010:WorkflowViewState.IdRef="If_4">
+                      <If.Then>
+                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,467" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <uga:DeleteEventConnections ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" AuthScopesInvalid="False" ConnectionId="1c061e5f-8693-49ee-8dd6-8aa84c36477d" DeleteType="SingleEvent" DisplayName="Delete Event" Event="[currentGSuiteEventItem]" sap:VirtualizedContainerService.HintSize="416,239" sap2010:WorkflowViewState.IdRef="DeleteEventConnections_1" UseConnectionService="True" />
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="LogMessage_10" Message="[&quot;DELETED | Event: &quot; &amp; currentGSuiteEventItem.Summary &amp; &quot; | &quot; &amp;&#xD;&#xA;                currentGSuiteEventItem.Start.DateTime.ToString(&quot;HH:mm&quot;) &amp; &quot;-&quot; &amp;&#xD;&#xA;                currentGSuiteEventItem.End.DateTime.ToString(&quot;HH:mm&quot;)]" />
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,228" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="LogMessage_12" Message="[&quot;UNCHANGED | Event: &quot; &amp; currentGSuiteEventItem.Summary &amp; &quot; | &quot; &amp;&#xD;&#xA;                currentGSuiteEventItem.Start.DateTime.ToString(&quot;HH:mm&quot;) &amp; &quot;-&quot; &amp;&#xD;&#xA;                currentGSuiteEventItem.End.DateTime.ToString(&quot;HH:mm&quot;)]" />
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEach.Body>
+            </ui:ForEach>
           </Sequence>
         </ActivityAction>
       </uix:NApplicationCard.Body>

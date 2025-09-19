@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="wK8wbIdyAE2-J3nCZumL0A" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="live6.dentrixascend.com/pm" CVScreenId="46e4c17a-6de8-4835-9375-91ee3a92d7e4" CvElementArea="404, 837, 20, 19" CvTextArea="429, 838, 130, 13" CvTextArgument="Dr. Patel - Operatory 1" CvType="CheckBox" DesignTimeRectangle="406, 837, 154, 18" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='pageContent' tag='DIV' /&gt;&lt;webctrl aaname='Dr. Patel - Operatory 1' shadowhostid='pageContent' tag='LABEL' /&gt;" Guid="d8bca63d-cfb3-45e4-8f24-87b927bc68a1" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Dentrix Ascend - Overview' /&gt;" SearchSteps="Selector, CV" Version="V6" WaitForReadyArgument="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="46e4c17a-6de8-4835-9375-91ee3a92d7e4" CvTextArea="391, 739, 157, 18" CvTextArgument="Appointment Duration" CvType="Text" DesignTimeRectangle="393, 730, 250, 36" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='pageContent' tag='DIV' matching:id='fuzzy' fuzzylevel:id='0.0' /&gt;&lt;webctrl aaname='Appointment Duration' shadowhostid='pageContent' tag='DIV' type='' class='sc-fDAHlQ hlNceR' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' matching:shadowhostid='fuzzy' fuzzylevel:shadowhostid='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' check:innerText='Appointment Duration' /&gt;" Guid="4c7a5aa9-a2d0-46ab-9258-f6470b2eb740" SearchSteps="FuzzySelector, CV" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="4f3c62feca7cf4403e43b1e971cde088.png" xmlns="">0CYZGvsVKn0KC5xNgaGf9UA</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Element 'Six Months'",
+  "Type": "Element",
+  "Id": "sXXAgEYabUuCrKyNpMP4EA",
+  "Reference": "bDeRzFDvPUq3Ep_a0YoV-Q/sXXAgEYabUuCrKyNpMP4EA",
+  "ParentRef": "bDeRzFDvPUq3Ep_a0YoV-Q/R8U6cQzL_kynsdix-hwBCA",
+  "Created": "2025-09-19T13:57:23.8760368Z",
+  "Updated": "2025-09-19T13:57:23.8760368Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.15.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

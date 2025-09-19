@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Custom Range",
+  "Type": "Element",
+  "Id": "ylgUihRVv0GZY1nNE3ZlOw",
+  "Reference": "bDeRzFDvPUq3Ep_a0YoV-Q/ylgUihRVv0GZY1nNE3ZlOw",
+  "ParentRef": "bDeRzFDvPUq3Ep_a0YoV-Q/R8U6cQzL_kynsdix-hwBCA",
+  "Created": "2025-09-19T14:01:42.1926378Z",
+  "Updated": "2025-09-19T14:01:42.1926378Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.15.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.10.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}
