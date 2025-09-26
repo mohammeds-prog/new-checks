@@ -131,8 +131,12 @@
       <AssemblyReference>Newtonsoft.Json</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="1293,11878" sap2010:WorkflowViewState.IdRef="Sequence_2">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="1293,13599" sap2010:WorkflowViewState.IdRef="Sequence_2">
     <Sequence.Variables>
+      <Variable x:TypeArguments="s:DateTime" Name="endd" />
+      <Variable x:TypeArguments="s:DateTime" Name="start" />
+      <Variable x:TypeArguments="x:Boolean" Name="missingDate" />
+      <Variable x:TypeArguments="s:DateTime" Name="currenttDate" />
       <Variable x:TypeArguments="s:DateTime" Name="slotsend" />
       <Variable x:TypeArguments="s:DateTime" Name="slotsstart" />
       <Variable x:TypeArguments="s:DateTime" Name="eventEndChicago" />
@@ -163,13 +167,13 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Chrome Dentrix Ascend" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="574,11855" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="fee03a61-1f22-4d56-9083-93dbf2e22507" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Chrome Dentrix Ascend" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="574,13576" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="fee03a61-1f22-4d56-9083-93dbf2e22507" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="540,11614" sap2010:WorkflowViewState.IdRef="Sequence_1">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="540,13335" sap2010:WorkflowViewState.IdRef="Sequence_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -429,7 +433,7 @@
                 <uix:TargetAnchorable BrowserURL="https://live6.dentrixascend.com/pm#/appointmentSearch" ContentHash="jYegnrLGd0iqMvsu3b2fdA" DesignTimeRectangle="673, 255, 870, 4201" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='pageContent' tag='DIV' /&gt;&lt;webctrl shadowhostid='pageContent' tag='TABLE' /&gt;" Guid="936f997c-c7a8-4d83-961c-aed9048e778b" InformativeScreenshot="8f608285b855d863a4b69ff4c9671ff4.png" Reference="bDeRzFDvPUq3Ep_a0YoV-Q/IsREg20fkkuLJl8pRI_KJA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Dentrix Ascend - Overview' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
               </uix:NExtractData.Target>
             </uix:NExtractData>
-            <uga:GetEventListConnections Calendar="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" SimpleSearch="{x:Null}" AuthScopesInvalid="False" BrowserCalendarFriendlyName="Alora-New" BrowserCalendarId="c_234a163a8d5dfe8d49d53b5012706f048fb4b7f08af94e9a5f4c357de25e1432@group.calendar.google.com" CalendarInputMode="Browse" ConnectionId="1c061e5f-8693-49ee-8dd6-8aa84c36477d" DisplayName="Get Event List" EndDate="2026-03-21 +00:00" EventList="[todayevents]" sap:VirtualizedContainerService.HintSize="506,289" sap2010:WorkflowViewState.IdRef="GetEventListConnections_2" MaxResults="1000000000" PreferredReturnTimezone="UTC" StartDate="2025-09-18 +00:00" UseConnectionService="True">
+            <uga:GetEventListConnections Calendar="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" SimpleSearch="{x:Null}" AuthScopesInvalid="False" BrowserCalendarFriendlyName="Alora-New" BrowserCalendarId="c_234a163a8d5dfe8d49d53b5012706f048fb4b7f08af94e9a5f4c357de25e1432@group.calendar.google.com" CalendarInputMode="Browse" ConnectionId="1c061e5f-8693-49ee-8dd6-8aa84c36477d" DisplayName="Get Event List" EndDate="2026-04-21 +00:00" EventList="[todayevents]" sap:VirtualizedContainerService.HintSize="506,289" sap2010:WorkflowViewState.IdRef="GetEventListConnections_2" MaxResults="1000000000" PreferredReturnTimezone="UTC" StartDate="2025-09-18 +00:00" UseConnectionService="True">
               <uga:GetEventListConnections.CalendarArgument>
                 <ugacm:CalendarArgument Backup="{x:Reference __ReferenceID0}" ConnectionDescriptor="{x:Null}" Existing="{x:Null}" BrowserId="c_234a163a8d5dfe8d49d53b5012706f048fb4b7f08af94e9a5f4c357de25e1432@group.calendar.google.com" ConnectionKey="1c061e5f-8693-49ee-8dd6-8aa84c36477d" FriendlyName="Alora-New" InputMode="Browse" />
               </uga:GetEventListConnections.CalendarArgument>
@@ -768,7 +772,7 @@
                         <InArgument x:TypeArguments="s:DateTime">[slot.Item2]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="452,177" sap2010:WorkflowViewState.IdRef="LogMessage_13" Message="[&quot;Comparing slot: &quot; &amp; slot.Item1.ToString(&quot;yyyy-MM-dd HH:mm&quot;) &amp; &quot;-&quot; &amp; slot.Item2.ToString(&quot;HH:mm&quot;) &amp; vbCrLf &amp; _&#xD;&#xA;&quot;Against todayEvents (Chicago local times):&quot; &amp; vbCrLf &amp; _&#xD;&#xA;String.Join(vbCrLf, todayEvents.Select(Function(ev) _&#xD;&#xA;    ev.Summary &amp; &quot; | &quot; &amp; _&#xD;&#xA;    TimeZoneInfo.ConvertTimeBySystemTimeZoneId(&#xD;&#xA;        DateTime.SpecifyKind(ev.Start.DateTime, DateTimeKind.Unspecified),&#xD;&#xA;        &quot;America/Chicago&quot;&#xD;&#xA;    ).ToString(&quot;yyyy-MM-dd HH:mm&quot;) &amp; &quot;-&quot; &amp; _&#xD;&#xA;    TimeZoneInfo.ConvertTimeBySystemTimeZoneId(&#xD;&#xA;        DateTime.SpecifyKind(ev.End.DateTime, DateTimeKind.Unspecified),&#xD;&#xA;        &quot;America/Chicago&quot;&#xD;&#xA;    ).ToString(&quot;HH:mm&quot;) _&#xD;&#xA;))]" />
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="452,177" sap2010:WorkflowViewState.IdRef="LogMessage_13" Message="[&quot;Comparing slot: &quot; &amp; slot.Item1.ToString(&quot;yyyy-MM-dd HH:mm&quot;) &amp; &quot;-&quot; &amp; slot.Item2.ToString(&quot;HH:mm&quot;) &amp; vbCrLf &amp; _&#xA;&quot;Against todayEvents (Chicago local times):&quot; &amp; vbCrLf &amp; _&#xA;String.Join(vbCrLf, todayEvents.Select(Function(ev) _&#xA;    ev.Summary &amp; &quot; | &quot; &amp; _&#xA;    TimeZoneInfo.ConvertTimeBySystemTimeZoneId(&#xA;        DateTime.SpecifyKind(ev.Start.DateTime, DateTimeKind.Unspecified),&#xA;        &quot;America/Chicago&quot;&#xA;    ).ToString(&quot;yyyy-MM-dd HH:mm&quot;) &amp; &quot;-&quot; &amp; _&#xA;    TimeZoneInfo.ConvertTimeBySystemTimeZoneId(&#xA;        DateTime.SpecifyKind(ev.End.DateTime, DateTimeKind.Unspecified),&#xA;        &quot;America/Chicago&quot;&#xA;    ).ToString(&quot;HH:mm&quot;) _&#xA;))]" />
                     <Assign sap:VirtualizedContainerService.HintSize="452,115" sap2010:WorkflowViewState.IdRef="Assign_22">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:Boolean">[overlapExists]</OutArgument>
@@ -819,7 +823,7 @@
                 </ActivityAction>
               </ui:ForEach.Body>
             </ui:ForEach>
-            <ui:ForEach x:TypeArguments="ugcm:GSuiteEventItem" CurrentIndex="{x:Null}" DisplayName="For Each currentGSuiteEventItem" sap:VirtualizedContainerService.HintSize="506,1186" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[todayevents]">
+            <ui:ForEach x:TypeArguments="ugcm:GSuiteEventItem" CurrentIndex="{x:Null}" DisplayName="For Each currentGSuiteEventItem" sap:VirtualizedContainerService.HintSize="506,1193" sap2010:WorkflowViewState.IdRef="ForEach`1_5" Values="[todayevents]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="ugcm:GSuiteEventItem">
                   <ActivityAction.Argument>
@@ -852,6 +856,105 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="LogMessage_12" Message="[&quot;UNCHANGED | Event: &quot; &amp; currentGSuiteEventItem.Summary &amp; &quot; | &quot; &amp;&#xA;TimeZoneInfo.ConvertTimeBySystemTimeZoneId(currentGSuiteEventItem.Start.DateTime, &quot;America/Chicago&quot;).ToString(&quot;yyyy-MM-dd&quot;) &amp; &quot; &quot; &amp;&#xA;TimeZoneInfo.ConvertTimeBySystemTimeZoneId(currentGSuiteEventItem.Start.DateTime, &quot;America/Chicago&quot;).ToString(&quot;HH:mm&quot;) &amp; &quot;-&quot; &amp;&#xA;TimeZoneInfo.ConvertTimeBySystemTimeZoneId(currentGSuiteEventItem.End.DateTime, &quot;America/Chicago&quot;).ToString(&quot;HH:mm&quot;)]" />
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEach.Body>
+            </ui:ForEach>
+            <ui:ForEach x:TypeArguments="ugcm:GSuiteEventItem" CurrentIndex="{x:Null}" DisplayName="For Each currentGSuiteEventItem" sap:VirtualizedContainerService.HintSize="506,1714" sap2010:WorkflowViewState.IdRef="ForEach`1_7" Values="[todayevents]">
+              <ui:ForEach.Body>
+                <ActivityAction x:TypeArguments="ugcm:GSuiteEventItem">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="ugcm:GSuiteEventItem" Name="currentGSuiteEventItem" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="486,1592" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Assign sap:VirtualizedContainerService.HintSize="452,115" sap2010:WorkflowViewState.IdRef="Assign_31">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="s:DateTime">[currentDate]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="s:DateTime">[TimeZoneInfo.ConvertTime(currentGSuiteEventItem.Start.DateTime, chicagoTZ).Date]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign sap:VirtualizedContainerService.HintSize="452,116" sap2010:WorkflowViewState.IdRef="Assign_33">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="s:DateTime">[start]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="s:DateTime" xml:space="preserve">[New DateTime(
+    currentDate.Year,
+    currentDate.Month,
+    currentDate.Day,
+    dayStart.Hour,
+    dayStart.Minute,
+    0
+)]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign sap:VirtualizedContainerService.HintSize="452,116" sap2010:WorkflowViewState.IdRef="Assign_34">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="s:DateTime">[endd]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="s:DateTime" xml:space="preserve">[New DateTime(
+    currentDate.Year,
+    currentDate.Month,
+    currentDate.Day,
+    dayEnd.Hour,
+    dayEnd.Minute,
+    0
+)]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <Assign sap:VirtualizedContainerService.HintSize="452,115" sap2010:WorkflowViewState.IdRef="Assign_32">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:Boolean">[missingDate]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:Boolean">[Not unavailableSlots.Any(Function(slot) slot.Item1.Date = currentDate)]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="452,177" sap2010:WorkflowViewState.IdRef="LogMessage_19" Message="[&quot;MissingDate check for &quot; &amp; currentDate.ToString(&quot;yyyy-MM-dd&quot;) &amp; &quot;: &quot; &amp; missingDate.ToString()]" />
+                    <If Condition="[missingDate = True]" sap:VirtualizedContainerService.HintSize="452,893" sap2010:WorkflowViewState.IdRef="If_6">
+                      <If.Then>
+                        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,673" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <uga:CreateEventConnections Calendar="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" Location="{x:Null}" OptionalAttendees="{x:Null}" Recurrence="{x:Null}" RequiredAttendees="{x:Null}" ResourceAttendees="{x:Null}" Result="{x:Null}" AddConferenceData="False" AllDayEvent="False" AuthScopesInvalid="False" BrowserCalendarFriendlyName="Alora-New" BrowserCalendarId="c_234a163a8d5dfe8d49d53b5012706f048fb4b7f08af94e9a5f4c357de25e1432@group.calendar.google.com" CalendarInputMode="Browse" ConnectionId="1c061e5f-8693-49ee-8dd6-8aa84c36477d" DisplayName="Create Event" EndDateTime="[endd]" GuestCanInviteOthers="True" GuestCanModifyEvent="False" GuestCanSeeAttendeesList="True" sap:VirtualizedContainerService.HintSize="416,445" sap2010:WorkflowViewState.IdRef="CreateEventConnections_3" PreferredReturnTimezone="America/Chicago" SendNotification="ALL" ShowAs="Opaque" StartDateTime="[start]" Timezone="America/Chicago" Title="Unavailable appointments" UseConnectionService="True" Visibility="DEFAULT">
+                            <uga:CreateEventConnections.CalendarArgument>
+                              <ugacm:CalendarArgument Backup="{x:Reference __ReferenceID2}" ConnectionDescriptor="{x:Null}" Existing="{x:Null}" BrowserId="c_234a163a8d5dfe8d49d53b5012706f048fb4b7f08af94e9a5f4c357de25e1432@group.calendar.google.com" ConnectionKey="1c061e5f-8693-49ee-8dd6-8aa84c36477d" FriendlyName="Alora-New" InputMode="Browse" />
+                            </uga:CreateEventConnections.CalendarArgument>
+                            <uga:CreateEventConnections.CalendarIdBackup>
+                              <usau:BackupSlot x:TypeArguments="ugace:ECalendarMode" x:Name="__ReferenceID2" StoredValue="Browse">
+                                <usau:BackupSlot.BackupValues>
+                                  <scg:Dictionary x:TypeArguments="ugace:ECalendarMode, scg:List(x:Object)" />
+                                </usau:BackupSlot.BackupValues>
+                              </usau:BackupSlot>
+                            </uga:CreateEventConnections.CalendarIdBackup>
+                            <uga:CreateEventConnections.Description>
+                              <InArgument x:TypeArguments="x:String" />
+                            </uga:CreateEventConnections.Description>
+                          </uga:CreateEventConnections>
+                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="LogMessage_20" Message="[&quot;CREATED FULL-DAY Unavailable appointments for &quot; &amp; currentDate.ToString(&quot;yyyy-MM-dd&quot;)]" />
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,90" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
                         </Sequence>
                       </If.Else>
                     </If>
