@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="wlg9VTbLpU-1PqrwtoqcoQ" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="live6.dentrixascend.com/pm" CVScreenId="41e54c6a-7752-47b1-9b15-6816c206174e" CvElementArea="381, 970, 78, 32" CvTextArea="399, 978, 43, 13" CvTextArgument="Search" CvType="Button" DesignTimeRectangle="383, 972, 75, 28" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='pageContent' tag='DIV' /&gt;&lt;webctrl aaname='Search' shadowhostid='pageContent' tag='BUTTON' /&gt;" Guid="2a82a29c-f9cd-47c1-ba13-aaceec4c29ce" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Dentrix Ascend - Overview' /&gt;" SearchSteps="Selector, CV" Version="V6" WaitForReadyArgument="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="41e54c6a-7752-47b1-9b15-6816c206174e" CvTextArea="391, 553, 89, 18" CvTextArgument="Time Range" CvType="Text" DesignTimeRectangle="393, 544, 250, 36" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='pageContent' tag='DIV' matching:id='fuzzy' fuzzylevel:id='0.0' /&gt;&lt;webctrl aaname='Time Range' shadowhostid='pageContent' tag='DIV' type='' class='sc-elomxs gUvGov' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' matching:shadowhostid='fuzzy' fuzzylevel:shadowhostid='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' check:innerText='Time Range' /&gt;" Guid="c413d9c6-ec96-45ec-84e8-c1c1b8bec362" SearchSteps="FuzzySelector, CV" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="dec60d199e92da0feb08bb1792fdadcd.png" xmlns="">0BxluY_bAEEuNVRKYqAgtwA</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

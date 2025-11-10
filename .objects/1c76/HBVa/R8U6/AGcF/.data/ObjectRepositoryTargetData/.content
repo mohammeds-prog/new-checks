@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="0qMU-m_zYES1VI9yUbotTA" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="live6.dentrixascend.com/pm" CVScreenId="ecfe5944-7dd0-4aa7-8b97-6fe07e1d516d" CvElementArea="404, 806, 19, 19" CvTextArea="429, 808, 110, 13" CvTextArgument="OP 1 - Operatory 1" CvType="CheckBox" DesignTimeRectangle="406, 807, 134, 18" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='pageContent' tag='DIV' /&gt;&lt;webctrl aaname='OP 1 - Operatory 1' parentid=':rk:' shadowhostid='pageContent' tag='LABEL' /&gt;" Guid="20ace89d-d49b-4a10-9036-5ff2292336dc" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Dentrix Ascend - Overview' /&gt;" SearchSteps="Selector, CV" Version="V6" WaitForReadyArgument="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="ecfe5944-7dd0-4aa7-8b97-6fe07e1d516d" CvTextArea="391, 553, 89, 18" CvTextArgument="Time Range" CvType="Text" DesignTimeRectangle="393, 544, 250, 36" ElementType="Text" FuzzySelectorArgument="&lt;webctrl id='pageContent' tag='DIV' matching:id='fuzzy' fuzzylevel:id='0.0' /&gt;&lt;webctrl aaname='Time Range' shadowhostid='pageContent' tag='DIV' type='' class='sc-elomxs gUvGov' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' matching:shadowhostid='fuzzy' fuzzylevel:shadowhostid='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' check:innerText='Time Range' /&gt;" Guid="ef4e0884-1cde-4f30-b47d-22787ee74bd7" SearchSteps="FuzzySelector, CV" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="c0895b79ffdee5a2edf8e2359919f289.png" xmlns="">0KqEG3uLVZ0GwMHfhJEUi0A</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>
